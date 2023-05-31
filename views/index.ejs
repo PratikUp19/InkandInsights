@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Ink and Insights
+</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header>
+    <h1>Ink and Insights
+</h1>
+    <nav>
+      <ul>
+        <li><a href="/posts">All Posts</a></li>
+        <li><a href="/new">Create New Post</a></li>
+        <% if (currentUser) { %>
+          <li><a href="/logout">Logout</a></li>
+        <% } else { %>
+          <li><a href="/login">Login</a></li>
+          <li><a href="/register">Register</a></li>
+        <% } %>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <h2>Latest Posts</h2>
+    <% if (blogPosts.length > 0) { %>
+      <ul class="post-list">
+        <% blogPosts.sort((a, b) => b.createdAt - a.createdAt) %>
+
+        <% blogPosts.forEach((post) => { %>
+          <li>
+            <h3><a href="/post/<%= post._id %>"><%= post.title %></a></h3>
+            <p><%= post.content.slice(0, 200) %>...
+              <!-- Read Full Blog Button -->
+              <a href="/post/<%= post._id %>" class="read-full-button">Read More</a></p>
+            <p class="author">Posted by <%= post.author %></p>
+            <p class="like-count"><%= post.likeCount %> likes</p>
+
+          </li>
+        <% }) %>
+      </ul>
+    <% } else { %>
+      <p>No posts found.</p>
+    <% } %>
+  </main>
+</body>
+</html>

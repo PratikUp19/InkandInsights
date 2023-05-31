@@ -1,0 +1,50 @@
+<!-- post.ejs -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Blog Post</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header>
+    <h1>Blog Post</h1>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/new">Create New Post</a></li>
+        <li><a href="/logout">Logout</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <h2><%= post.title %></h2>
+    <p><%= post.content %></p>
+    <p class="author">Posted by <%= post.author %></p>
+    <p class="likes">Likes: <%= post.likeCount %></p>
+    <form action="/post/<%= post._id %>/like" method="post">
+        <% if (currentUser &&post.likes.includes(currentUser._id)) { %>
+          <button type="submit"class="like-button">Unlike</button>
+        <% } else { %>
+          <button type="submit"class="like-button">Like</button>
+        <% } %>
+      </form>
+    
+    <% post.comments.forEach((comment) => { %>
+      <div class="comment">
+        <p class="comment-text"><%= comment.text %></p>
+        <p class="comment-author">Posted by <%= comment.author %> at <%= comment.createdAt %></p>
+      </div>
+    <% }) %>
+    
+
+  
+    
+    <form action="/comment/<%= post._id %>" method="post">
+      <input type="text" name="comment" placeholder="Add a comment" required>
+      <button class="comment-button" type="submit">Comment</button>
+    </form>
+  </main>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!-- posts.ejs -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Ink and Insights</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header>
+    <h1>Blog Posts</h1>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/new">Create New Post</a></li>
+        <li><a href="/logout">Logout</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <h2>Posts</h2>
+    <% if (blogPosts.length > 0) { %>
+      <ul class="post-list">
+        <% blogPosts.sort((a, b) => b.createdAt - a.createdAt) %>
+
+        <% blogPosts.forEach((post) => { %>
+          <li>
+            <h3><a href="/post/<%= post._id %>"><%= post.title %></a></h3>
+            <p><%= post.content.slice(0, 200) %>...
+                   <!-- Read Full Blog Button -->
+                   <a href="/post/<%= post._id %>" class="read-full-button">Read More</a></p>
+            <p class="author">Posted by <%= post.author %></p>
+            <!-- Display the like count -->
+            <p class="like-count"><%= post.likeCount %> likes</p>
+
+            <% if (post.author == currentUser) { %>
+              <!-- ... edit and delete buttons ... -->
+              <a class="edit-button" href="/edit/<%= post._id %>">Edit</a>
+              <form action="/delete/<%= post._id %>" method="post">
+                <button class="delete-button" type="submit">Delete</button>
+              </form>
+            <% } %>
+
+     
+
+         
+          </li>
+        <% }) %>
+      </ul>
+    <% } else { %>
+      <p>No posts found.</p>
+    <% } %>
+  </main>
+</body>
+</html>

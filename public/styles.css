@@ -1,0 +1,212 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+  }
+  
+  h1, h2, h3 {
+    margin: 0;
+  }
+  
+  nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+  }
+  
+  nav ul li {
+    margin-left: 10px;
+  }
+  
+  nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+  } 
+  main {
+    background-color: #fff;
+    padding: 20px;
+  }
+  
+  /* Index Page Styles */
+  .post-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .post-list li {
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .post-list li h3 {
+    margin: 0;
+    color: #333;
+  }
+  
+  .post-list li p {
+    margin: 10px 0;
+    color: #666;
+  }
+  
+  .post-list li .author {
+    color: #888;
+  }
+  
+  /* Create/Edit Post Page Styles */
+  form {
+    margin-bottom: 20px;
+  }
+  
+  form input[type="text"],
+  form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  form input[type="submit"] {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+
+  .post-list li .edit-button,
+.post-list li .delete-button {
+  display: inline-block;
+  padding: 5px 10px;
+  margin: 5px;
+  border-radius: 5px;
+  text-decoration: none;
+  background-color: #333;
+  color: #fff;
+}
+
+.post-list li .edit-button:hover,
+.post-list li .delete-button:hover {
+  background-color: #555;
+}
+
+.post-list li .delete-button {
+  background-color: #c00;
+}
+
+.post-list li .delete-button:hover {
+  background-color: #f00;
+}
+  
+  /* Login/Register Page Styles */
+  .login-form {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .login-form input[type="text"],
+  .login-form input[type="password"] {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 10px;
+
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  .login-form input[type="submit"] {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  /* Error Page Styles */
+  .error-message {
+    color: #c00;
+    margin-bottom: 20px;
+  }
+  /*Like Button*/
+
+  .like-button {
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 5px;
+    border-radius: 5px;
+    text-decoration: none;
+    background-color: #333;
+    color: #fff;
+  }
+  
+  .like-button:hover {
+    background-color: #555;
+  }
+
+  /* Comment Section */
+.comment {
+  margin: 10px;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+}
+
+.comment .comment-text {
+  margin: 0;
+  font-weight: bold;
+}
+
+.comment .comment-author {
+  margin: 0;
+  color: #888;
+  font-size: 0.8em;
+}
+
+form input[name="comment"] {
+  width: 200px;
+  margin-right: 10px;
+}
+
+ .comment-button {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  background-color: #333;
+  color: #fff;
+}
+
+.post-list li form .comment-button:hover {
+  background-color: #555;
+}
